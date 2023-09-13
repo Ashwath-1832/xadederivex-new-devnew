@@ -572,26 +572,29 @@ span + #derivexlol {
 
 @media (max-width: 1197px) {
   span + #derivexlol {
-    height: 260vh;
+    height: 205vh;
   }
   .poolmaincont {
     height: 100%;
+    width: 95%;
   }
   .poolinfoliq {
-    flex-direction: column-reverse;
+    flex-direction: column;
     height: 92%;
   }
   .poolmch {
     height: 8%;
+    margin-bottom: -10%;
   }
   .poolinfo {
     width: 100%;
-    height: 98rem;
+    height: 100%;
   }
   .poolliq {
     width: 100%;
     height: 98rem;
-    margin-bottom: 22px;
+    margin-left: 0%;
+    margin-top: 5%;
   }
   .plc2 {
     width: 71%;

@@ -362,14 +362,28 @@ const Pools = () => {
                             </div>
                             <div className="pi">
                               <div className="piupdn greenChart">
-                                <div className="chartanimate">
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "end",
+                                    alignItems: "end",
+                                    height: "8rem",
+                                  }}
+                                >
                                   {" "}
                                   Go down then up
                                 </div>
                               </div>
 
                               <div className="piupdn redChart">
-                                <div className="chartanimate">
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "end",
+                                    height: "8rem",
+                                  }}
+                                >
                                   {/* // style={{ backgroundColor: "#62232c" }} */}
                                   <div>Go up then down</div>
                                 </div>

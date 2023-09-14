@@ -499,7 +499,7 @@ const Pools = () => {
                                           height: "100%",
                                           paddingLeft: 15,
                                         }}
-                                        type="text"
+                                        type="number"
                                         placeholder="USD"
                                       ></input>
                                     </div>
@@ -523,6 +523,7 @@ const Pools = () => {
                                     <div className="amtm1in">
                                       <input
                                         placeholder="0.00x"
+                                        type="number"
                                         style={{
                                           paddingLeft: 15,
                                           color: "white",

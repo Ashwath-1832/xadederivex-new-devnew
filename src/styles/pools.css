@@ -367,6 +367,16 @@ span + #derivexlol {
   inset: 0;
   filter: none;
   background-position: center center;
+  border: 2px solid grey;
+}
+.greenChartOFF {
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  background-image: url("../../public/Media/greenChartOFF.svg");
+  inset: 0;
+  filter: none;
+  background-position: center center;
 }
 .redChart {
   background-repeat: no-repeat;
@@ -376,6 +386,26 @@ span + #derivexlol {
   inset: 0;
   filter: none;
   background-position: center center;
+  border: 2px solid grey;
+}
+.redChartOFF {
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  background-image: url("../../public/Media/redChartOFF.svg");
+  inset: 0;
+  filter: none;
+  background-position: center center;
+}
+
+.inputBOX {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
 }
 
 .pricerange {

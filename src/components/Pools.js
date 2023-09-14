@@ -15,9 +15,12 @@ const Pools = () => {
   const [open, setOpen] = React.useState(false);
   const [Simadvmodal, setSimadvmodal] = React.useState(true);
   const [liquidityInfo, setLiquidityInfo] = React.useState();
+  const [upDownbutton, setUpDownButton] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [priceInputMax, setPriceInputMax] = React.useState();
 
+  const [priceInput, setPriceInput] = React.useState();
   const theme = createTheme();
 
   const marks = [
@@ -361,7 +364,16 @@ const Pools = () => {
                               I think the price of BTC will...
                             </div>
                             <div className="pi">
-                              <div className="piupdn greenChart">
+                              <div
+                                className={
+                                  upDownbutton
+                                    ? "piupdn greenChart"
+                                    : "piupdn greenChartOFF"
+                                }
+                                onClick={() => {
+                                  setUpDownButton(true);
+                                }}
+                              >
                                 <div
                                   style={{
                                     display: "flex",
@@ -375,7 +387,16 @@ const Pools = () => {
                                 </div>
                               </div>
 
-                              <div className="piupdn redChart">
+                              <div
+                                className={
+                                  upDownbutton
+                                    ? "piupdn redChartOFF"
+                                    : "piupdn redChart"
+                                }
+                                onClick={() => {
+                                  setUpDownButton(false);
+                                }}
+                              >
                                 <div
                                   style={{
                                     display: "flex",
@@ -476,6 +497,7 @@ const Pools = () => {
                                           borderRadius: "15px",
                                           width: "100%",
                                           height: "100%",
+                                          paddingLeft: 15,
                                         }}
                                         type="text"
                                         placeholder="USD"
@@ -499,9 +521,13 @@ const Pools = () => {
                                     style={{ backgroundColor: "#2F3032" }}
                                   >
                                     <div className="amtm1in">
-                                      <span style={{ paddingLeft: 15 }}>
-                                        0.00x
-                                      </span>
+                                      <input
+                                        placeholder="0.00x"
+                                        style={{
+                                          paddingLeft: 15,
+                                          color: "white",
+                                        }}
+                                      ></input>
                                     </div>
                                   </div>
                                 </div>
@@ -743,16 +769,39 @@ const Pools = () => {
                               <div className="piupdn pia1">
                                 <div className="mbtnt">
                                   <div className="mbtn">
-                                    <button>-</button>
+                                    <button
+                                      onClick={() => {
+                                        setPriceInput(priceInput - 1);
+                                      }}
+                                    >
+                                      -
+                                    </button>
                                   </div>
                                   <div className="mbtn-t">
                                     <span>Min</span>
                                   </div>
                                 </div>
                                 <div className="matxt">
-                                  <input type="text" />
+                                  <input
+                                    type="text"
+                                    className="inputBOX"
+                                    value={priceInput}
+                                    onChange={(e) => {
+                                      const result = e.target.value.replace(
+                                        /\D/g,
+                                        ""
+                                      );
+                                      setPriceInput(Number(result));
+                                    }}
+                                  />
                                   <div className="mbtn">
-                                    <button>+</button>
+                                    <button
+                                      onClick={() => {
+                                        setPriceInput(priceInput + 1);
+                                      }}
+                                    >
+                                      +
+                                    </button>
                                   </div>
                                 </div>
                                 <div className="abtnt"></div>
@@ -760,16 +809,40 @@ const Pools = () => {
                               <div className="piupdn pia1">
                                 <div className="mbtnt">
                                   <div className="mbtn">
-                                    <button>-</button>
+                                    <button
+                                      onClick={() => {
+                                        setPriceInputMax(priceInputMax - 1);
+                                      }}
+                                    >
+                                      -
+                                    </button>
                                   </div>
                                   <div className="mbtn-t">
                                     <span>Max</span>
                                   </div>
                                 </div>
                                 <div className="matxt">
-                                  <input type="text" />
+                                  <input
+                                    type="text"
+                                    className="inputBOX"
+                                    value={priceInputMax}
+                                    onChange={(e) => {
+                                      const result = e.target.value.replace(
+                                        /\D/g,
+                                        ""
+                                      );
+
+                                      setPriceInputMax(Number(result));
+                                    }}
+                                  />
                                   <div className="mbtn">
-                                    <button>+</button>
+                                    <button
+                                      onClick={() => {
+                                        setPriceInputMax(priceInputMax + 1);
+                                      }}
+                                    >
+                                      +
+                                    </button>
                                   </div>
                                 </div>
                                 <div className="abtnt"></div>
@@ -803,7 +876,10 @@ const Pools = () => {
                                       <span>BTC</span>
                                     </div>
                                   </div>
-                                  <input type="text" />
+                                  <input
+                                    type="number"
+                                    style={{ paddingLeft: "35px" }}
+                                  />
                                 </div>
                                 <div
                                   className="bumain1"
@@ -818,7 +894,10 @@ const Pools = () => {
                                       <span>USD</span>
                                     </div>
                                   </div>
-                                  <input type="text" />
+                                  <input
+                                    type="number"
+                                    style={{ paddingLeft: "35px" }}
+                                  />
                                 </div>
                               </div>
                               <div
